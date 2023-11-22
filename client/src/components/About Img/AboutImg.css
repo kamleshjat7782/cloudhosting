@@ -1,0 +1,105 @@
+/* page.css and about sectionnn */
+.page-container {
+    width: 100%;
+    padding: 2% 0%;
+    background-image: linear-gradient( rgba(118, 62, 230, 0.264), rgba(0, 217, 255, 0.5));
+    font-size: 2.5em;
+  }
+  
+  .content {
+    padding: 10px;
+    width: 100%;
+    margin: 30px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .about-img {
+    margin: 0px 20px 0px 0px;
+    justify-self: center;
+  }
+  
+  .about-cont {
+    width: 510px;
+    margin: 10px 0px 0px 0px;
+    font-size: 20px;
+  }
+  
+  .about-cont h1 {
+    margin: 20px 0px;
+  }
+  .about-cont p {
+    width: 500px;
+  }
+  
+  
+  /* Media Query for narrow screens */
+  @media (max-width: 768px) {
+    .content {
+      padding: 10px;
+      flex-direction: column; /* Stack content vertically on narrow screens */
+    }
+  
+    .about-img,
+    .about-cont {
+      margin: 10px 0; /* Adjust spacing for smaller screens */
+    }
+  }
+  
+  @media (max-width: 414px) {
+    .about-img img{
+      width: 300px;
+    }
+  
+    .about-cont {
+      width: 310px;
+      margin: 10px 0px 0px 0px;
+      font-size: 20px;
+    }
+  
+    .about-cont p {
+      width: 325px;
+    }
+  
+  }
+  
+
+  
+  /* .about-img, .about-cont {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+  
+  .fade-in-left {
+    animation: fadeInLeft 1s forwards;
+  }
+  
+  .fade-in-right {
+    animation: fadeInRight 1s forwards;
+  }
+  
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+   */
+  

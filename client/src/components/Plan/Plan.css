@@ -1,0 +1,148 @@
+/* pricing plans new with more better start */
+.Plans {
+  width: 100%;
+}
+
+.Plan-title {
+  text-align: center;
+  color: #30b1b7;
+  font-size: 8vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Plans-plan {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Plans-plan .plan-container {
+  flex-wrap: wrap;
+  width: 260px;
+  margin: 30px;
+  border-radius: 5vh;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border: none;
+}
+
+.Plans-plan .plan-container:hover {
+  box-shadow: rgba(74, 75, 77, 0.4) 2px 2px 20px 5px, rgba(6, 24, 44, 0.65) 4px 4px 4px -5px, rgba(255, 255, 255, 0.08) 4px 4px 4px inset;
+}
+
+.plan-container .service-plan-head {
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
+  background: linear-gradient(81deg, rgba(84, 229, 227, 0.571) 25%, rgba(156, 235, 239, 1) 94%);
+}
+
+.service-plan-head .plan-head h1 {
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+
+.service-plan-head .plan-top-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.service-plan-head .plan-top-container .plan-price-container {
+  width: 202px;
+  height: 230px;
+  margin: auto;
+  display: grid;
+  align-items: center;
+}
+
+.plan-top-container .plan-price-container .plan-currency {
+  color: white;
+  justify-self: left;
+  font-size: 3rem;
+}
+
+.plan-top-container .plan-price-container .plan-price-box {
+  margin-top: -42px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 5em;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.17) 10px 23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.plan-price-box .plan-price {
+  width: 106px;
+  height: 105px;
+  background: linear-gradient(81deg, rgba(28, 233, 216, 0.571) 25%, rgba(156, 235, 239, 1) 94%);
+ 
+  box-shadow: inset 0 0 57px #292727;
+  border: none;
+  margin: auto;
+  border-radius: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plan-price-box .plan-price p{
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.plan-price-container .plan-period {
+  justify-self: right;
+  font-size: larger;
+}
+
+
+.Plans-plan .plan-content {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Plans-plan .plan-content ul {
+  
+  padding: 15px 0px 0px 0px;
+}
+
+.Plans-plan .plan-content ul li {
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.service-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.service-btn .btn {
+  width: 170px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  font-size: large;
+  font-weight: bold;
+  background: rgb(29, 162, 163);
+  background: linear-gradient(259deg, rgba(174, 47, 212, 0.256) 35%, rgba(22, 179, 187, 0.804) 100%);
+
+}
+
+.service-btn .btn:hover {
+
+  background: rgba(150, 255, 255, 0.929);
+  box-shadow: rgba(135, 241, 255, 0.3) 0px 1px 38px, rgba(0, 0, 0, 0.22) 0px 6px 12px;
+}
+
+/* pricing plans new with more better end */

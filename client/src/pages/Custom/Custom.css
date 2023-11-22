@@ -1,0 +1,205 @@
+/* Customplan css start here  */
+
+.plan-editor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.plan-form {
+  background: linear-gradient(81deg, rgba(84, 229, 227, 0.571) 25%, rgba(156, 235, 239, 1) 94%);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fefefe;
+}
+
+.plan-form-inner {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  box-shadow: inset 0 0 9px #292727;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fefefe;
+}
+
+.plan-form-title {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.plan-main {
+  background: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.main-div-inner{
+  margin: 0px 0px;
+}
+
+.main-inner {
+
+  height: 100px;
+  width: 225px;
+  padding: 10px;
+  margin: 13px;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
+
+
+
+.plan-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.plan-form select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Customplan css end here  */
+
+/* pricing plans new with more better start */
+
+.custom-plan .plan-container-custom {
+  width: 300px;
+  margin: 20px 0px;
+  border-radius: 5vh;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border: none;
+}
+
+.custom-plan .plan-container-custom:hover {
+  box-shadow: rgba(74, 75, 77, 0.4) 2px 2px 20px 5px, rgba(6, 24, 44, 0.65) 4px 4px 4px -5px, rgba(255, 255, 255, 0.08) 4px 4px 4px inset;
+}
+
+.plan-container-custom .custom-plan-head {
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
+  background: linear-gradient(81deg, rgba(84, 229, 227, 0.571) 25%, rgba(156, 235, 239, 1) 94%);
+}
+
+.custom-plan-head .plan-head h1 {
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+
+.custom-plan-head .plan-top-container-custom {
+  display: flex;
+  justify-content: center;
+  margin: -12px;
+}
+
+.custom-plan-head .plan-top-container-custom .Custom-price-container {
+  width: 202px;
+  height: 230px;
+  margin: auto;
+  display: grid;
+  align-items: center;
+}
+
+.plan-top-container-custom .Custom-price-container .plan-currency {
+  color: white;
+  justify-self: left;
+  font-size: 3rem;
+}
+
+.plan-top-container-custom .Custom-price-container .Custom-price-box {
+  margin-top: -30px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 5em;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.17) 10px 23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.Custom-price-box .plan-price {
+  width: 106px;
+  height: 105px;
+  background: linear-gradient(81deg, rgba(28, 233, 216, 0.571) 25%, rgba(156, 235, 239, 1) 94%);
+  box-shadow: inset 0 0 57px #292727;
+  border: none;
+  margin: auto;
+  border-radius: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Custom-price-box .plan-price span {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+}
+
+.Custom-price-container .plan-period {
+  margin: 0px;
+  justify-self: right;
+  font-size: larger;
+  font-weight: 500;
+}
+
+.custom-plan .plan-content-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.custom-plan .plan-content-custom ul {
+  padding: 20px;
+}
+
+.custom-plan .plan-content-custom ul li {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.service-btn-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.service-btn-custom .btn {
+  color: black;
+  margin-bottom: 30px;
+  width: 170px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  font-size: large;
+  font-weight: bold;
+  background: rgb(29, 162, 163);
+  background: linear-gradient(259deg, rgba(174, 47, 212, 0.256) 35%, rgba(22, 179, 187, 0.804) 100%);
+
+}
+
+.service-btn-custom .btn:hover {
+
+  background: rgb(150, 255, 255);
+  box-shadow: rgba(135, 241, 255, 0.3) 0px 1px 38px, rgba(0, 0, 0, 0.22) 0px 10px 12px;
+}
+
+/* pricing plans new with more better end */

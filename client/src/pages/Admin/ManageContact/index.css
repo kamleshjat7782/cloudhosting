@@ -1,0 +1,30 @@
+.contact{
+    font-size: 40px;
+    margin: 40px;
+    text-align: center;
+}
+
+.cont{
+    width: 900px;
+    height: 50px;
+    font-size: 23px;
+    justify-content: left;
+    /* padding: 20px;
+    margin: 20px; */
+    /* text-align: ; */
+}
+
+.Button{
+    width: 400px;
+    height: 30px;
+    /* font-size: 10px; */
+    display: flex ;
+    justify-content: space-around;
+}
+
+.main{
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+
+}

@@ -1,0 +1,54 @@
+
+p{
+    margin: 0 !important ; 
+}
+.invoice-table td{
+    padding: 2px 2px 2px 8px !important ; 
+}
+
+.invoice-container{
+    margin: 50px 0 50px 0;
+}
+.invoice-container h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.invoice{
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.invoice-header{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.invoice-logo{
+    padding-bottom: 20px;
+}
+
+.invoice-logo-img{
+    width: 30%;
+}
+
+.invoice-no{
+    background-color: rgb(247, 251, 255);
+    border-radius: 9px;
+    padding: 16px 20px;
+    
+}
+.invoice-table thead{
+    background-color: rgb(176, 204, 232);
+    
+}
+
+.invoice-table thead td{
+    /* padding-right: 150px; */
+    
+}

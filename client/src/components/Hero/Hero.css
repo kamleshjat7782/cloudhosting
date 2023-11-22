@@ -1,0 +1,82 @@
+/* Hero.css */
+.hero-container {
+  width: 100%;
+  height: 75vh;
+  padding: 2% 10%;
+  background-image: linear-gradient(rgba(0, 255, 200, 0.5), rgba(118, 62, 230, 0.264));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.5em;
+}
+
+.content-h3 h3 {
+  font-weight: 420;
+}
+
+.content-h5 h5 {
+  font-weight: 400;
+}
+
+.button-div{
+  display: block;
+}
+
+.button-div button {
+  width: 120px;
+  height: 60px;
+  border-radius: 5em;
+  font-size: 0.4em;
+}
+
+.main-hero-img {
+  width: 50%;
+  overflow: hidden;
+}
+
+/* Add this rule to limit the width of the image */
+.main-hero-img .hero-img {
+  max-width: 100%; /* Adjust this value as needed */
+  height: auto; /* This will maintain the image's aspect ratio while resizing */
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    height: auto; /* Adjust the height as per your design */
+    font-size: 10px; /* Adjust the font size for smaller screens */
+  }
+
+  /* Adjust the button size for smaller screens */
+  .button-div button {
+    width: 150px;
+    height: 70px;
+    font-size: 20px;
+  }
+
+  /* Adjust the image size for smaller screens */
+  .main-hero-img .hero-img {
+    max-width: 100%;
+  }
+
+  /* Adjust the font sizes for smaller screens */
+  .content-h3 h3 {
+    font-size: 36px;
+  }
+
+  .content-h5 h5 {
+    font-size: 24px;
+  }
+}
+
+
+/* .cursor {
+  animation: blink 1s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+} */

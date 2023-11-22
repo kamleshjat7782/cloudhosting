@@ -1,0 +1,210 @@
+/* USER STYLEE */
+.headMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #0a9dad70;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background: white;
+}
+
+.page-content {
+    padding: 30px;
+}
+
+.card-inner {
+    padding: 16px 30px;
+    border-color: #1364cd !important
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.card-sub-title {
+    text-transform: uppercase;
+    color: #758698;
+    letter-spacing: 0.1em;
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 500;
+    margin: 8px
+}
+
+table thead tr th {
+    background: #0a9dad70 !important;
+    color: rgb(0, 0, 0);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .55rem
+}
+
+.css-sghohy-MuiButtonBase-root-MuiButton {
+    min-width: 0px;
+}
+
+
+.data-details-list tr {
+    padding: 16px 20px;
+}
+
+.data-details-head {
+    width: 190px;
+    padding: 14px 20px;
+    flex: 1;
+    font-weight: bold;
+    border: 1px solid #d2dde9;
+}
+
+.data-details-des {
+    width: calc(100% - 190px);
+    padding: 14px 20px;
+    border: 1px solid #d2dde9;
+    flex: 1;
+}
+
+.dropbtn {
+    background-color: #4c99af;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    right: 0px;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 123px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #13c2da;
+  }
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+
+
+/* plandata */
+
+/* .cloud {
+    color: #505050;
+} */
+
+/* @media (max-width: 993px){.cloud {
+
+    display: flex;
+    flex-direction: column;
+}
+}
+.cloud {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.billing{
+    text-align: center;
+}
+
+@media (max-width: 993px){
+.cloud .cloud-top, .cloud #content-cloud {
+    margin: 20px 0;
+    width: 100%;
+}
+}
+.cloud .cloud-top {
+    display: block;
+    line-height: 1.45;
+}
+
+@media (max-width: 993px) {
+.cloud .cloud-top, .cloud #content-cloud {
+    margin: 20px 0;
+    width: 100%;
+}}
+.cloud #content-cloud {
+    margin: 0px 0 40px;
+}
+#content-cloud {
+    margin-top: -1px;
+}
+#content-cloud, .content-cloud {
+    background: none !important;
+}
+
+.table tbody td {
+    vertical-align: middle;
+    padding: 10px 30px;
+    border: none;
+}
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 0.07rem solid #EBECF0;
+}

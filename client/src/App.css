@@ -1,0 +1,67 @@
+.main-cart{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 20px 0px;
+}
+
+.cart-content{
+    width: 140px;
+    text-align: center;
+}
+
+.border{
+    margin: 20px 0px;
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+#root{
+overflow: hidden;
+}
+
+.back-animation {
+    background: radial-gradient(ellipse at center, rgba(2, 74, 255, 0.084) 0%, rgb(0 0 0 / 0%) 50%), radial-gradient(ellipse at center, rgb(0 90 255 / 5%) 0%, rgb(0 0 0 / 0%) 60%), radial-gradient(ellipse at center, rgb(0 137 255 / 10%) 0%, rgb(0 0 0 / 0%) 60%) #e5effc;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 1200px 1200px, 1200px 1200px, 1200px 1200px;
+    background-attachment: fixed;
+    animation: bganimation 10s infinite;
+    padding: 2.5% 2%;
+}
+
+@keyframes bganimation {
+
+    0% {
+        background-position: -100% -100%, 200% 200%, -100% 200%, 200% -100%;
+    }
+
+    50% {
+        background-position: 150% 100%, -200% 100%, 100% 0%, 0% 100%;
+    }
+
+    100% {
+        background-position: -100% -100%, 200% 200%, -100% 200%, 200% -100%;
+    }
+}
+
+.transition{
+    -webkit-transition: all .6s ease-in-out 0.2s;
+    transition: all .6s ease-in-out 0.2s;
+}
+
+.opacity_0{
+    opacity: 0;
+}
+
+.opacity_01{
+    opacity: 1;
+    margin-top: 65px;
+}
+
+
+
