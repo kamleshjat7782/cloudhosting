@@ -35,15 +35,11 @@ const Helloside = ({setTitle}) => {
                     {auth?.user?.role === 1 ?
                     <>
                      <li>
-                        <NavLink onClick={() => setTitle('Dashboard')}   to= 'admin/    ' activeclassname="activePage"> 
+                        <NavLink onClick={() => setTitle('Dashboard')}   to= 'admin/' activeclassname="activePage"> 
                         <DashboardIcon className="iconC" sx={{color: '#7254F6'}} />
                         Dashboard</NavLink>
                     </li>
-                    <li>
-                        <NavLink onClick={() => setTitle('Create Category')}   to= 'admin/create-category' activeclassname="activePage">
-                            <CategorySharpIcon className="iconC" sx={{color: '#7254F6'}} />
-                             Create Category</NavLink>
-                    </li>
+                    
                     <li>
                         <NavLink onClick={() => setTitle('Create Product')}   to= 'admin/create-product' activeclassname="activePage">
                             <NoteAddSharpIcon className="iconC" sx={{color: '#7254F6'}} />

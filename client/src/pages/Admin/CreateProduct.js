@@ -1,42 +1,22 @@
 import React, { useState, useEffect } from "react";
-import Layout from "./../../components/Layout/Layout";
-import AdminMenu from "./../../components/Layout/AdminMenu";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
-const { Option } = Select;
 
 const CreateProduct = () => {
   const navigate = useNavigate();
-  const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-  // const [quantity, setQuantity] = useState("");
-  const [shipping, setShipping] = useState("");
   const [storage, setStorage] = useState("");
   const [core, setCore] = useState("");
   const [ram, setRam] = useState("");
   const [bandwidth, setBandwidth] = useState("");
+  const [monthlyPrice, setMonthlyPrice] = useState("");
+  const [quarterlyPrice, setQuarterlyPrice] = useState("");
+  const [halfYearlyPrice, setHalfYearlyPrice] = useState("");
+  const [yearlyPrice, setYearlyPrice] = useState("");
 
-  //get all category
-  const getAllCategory = async () => {
-    try {
-      const { data } = await axios.get("/api/v1/category/get-category");
-      if (data?.success) {
-        setCategories(data?.category);
-      }
-    } catch (error) {
-      console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
-    }
-  };
-
-  useEffect(() => {
-    getAllCategory();
-  }, []);
+  
 
   //create product function
   const handleCreate = async (e) => {
@@ -45,13 +25,14 @@ const CreateProduct = () => {
       const productData = new FormData();
       productData.append("name", name);
       productData.append("description", description);
-      productData.append("price", price);
-      // productData.append("quantity", quantity);
       productData.append("storage", storage);
-      productData.append("category", category);
       productData.append("core", core);
       productData.append("ram", ram);
       productData.append("bandwidth", bandwidth);
+      productData.append("monthlyPrice", monthlyPrice);
+      productData.append("quarterlyPrice", quarterlyPrice);
+      productData.append("halfYearlyPrice", halfYearlyPrice);
+      productData.append("yearlyPrice", yearlyPrice);
       const { data } = axios.post(
         "/api/v1/product/create-product",
         productData
@@ -61,6 +42,7 @@ const CreateProduct = () => {
         toast.error(data?.message);
       } else {
         toast.success("Product Created Successfully");
+        console.log('Product Created Successfully')
         navigate("/dashboard/admin/products");
       }
     } catch (error) {
@@ -76,22 +58,6 @@ const CreateProduct = () => {
           <div className="col-md-9">
             <h1>Create Product</h1>
             <div className="m-1 w-75">
-              <Select
-                bordered={false}
-                placeholder="Select a category"
-                size="large"
-                showSearch
-                className="form-select mb-3"
-                onChange={(value) => {
-                  setCategory(value);
-                }}
-              >
-                {categories?.map((c) => (
-                  <Option key={c._id} value={c._id}>
-                    {c.name}
-                  </Option>
-                ))}
-              </Select>
               
               <div className="mb-3">
                 <input
@@ -113,14 +79,41 @@ const CreateProduct = () => {
               </div>
 
               <div className="mb-3">
-                <input
-                  type="number"
-                  value={price}
-                  placeholder="write a Price"
-                  className="form-control"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-              </div>
+              <input
+                type="number"
+                value={monthlyPrice}
+                placeholder="Monthly Price"
+                className="form-control"
+                onChange={(e) => setMonthlyPrice(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="number"
+                value={quarterlyPrice}
+                placeholder="Quarterly Price"
+                className="form-control"
+                onChange={(e) => setQuarterlyPrice(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="number"
+                value={halfYearlyPrice}
+                placeholder="Half Yearly Price"
+                className="form-control"
+                onChange={(e) => setHalfYearlyPrice(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="number"
+                value={yearlyPrice}
+                placeholder="Yearly Price"
+                className="form-control"
+                onChange={(e) => setYearlyPrice(e.target.value)}
+              />
+            </div>
               <div className="mb-3">
                 <input
                   type="number"
@@ -156,22 +149,6 @@ const CreateProduct = () => {
                   className="form-control"
                   onChange={(e) => setBandwidth(e.target.value)}
                 />
-              </div>
-              
-              <div className="mb-3">
-                <Select
-                  bordered={false}
-                  placeholder="Select Shipping "
-                  size="large"
-                  showSearch
-                  className="form-select mb-3"
-                  onChange={(value) => {
-                    setShipping(value);
-                  }}
-                >
-                  <Option value="0">No</Option>
-                  <Option value="1">Yes</Option>
-                </Select>
               </div>
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleCreate}>

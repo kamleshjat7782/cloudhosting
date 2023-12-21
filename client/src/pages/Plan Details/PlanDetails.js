@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useCart } from "../../context/cart";
+import { Button } from "@mui/material";
+import toast from "react-hot-toast";
+import Layout from "../../components/Layout/Layout";
 
 const PlanDetails = () => {
   const { id } = useParams();
@@ -9,6 +13,9 @@ const PlanDetails = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hostname, setHostname] = useState();
+  const [cart, setCart] = useCart();
+  const [billingCycle, setBillingCycle] = useState('Monthly');
+  const navigate = useNavigate();
 
   const getPlanDetails = async () => {
     try {
@@ -26,11 +33,31 @@ const PlanDetails = () => {
     getPlanDetails();
   }, [id]);
 
+  const getBillingCyclePrice = () => {
+    switch (billingCycle) {
+      case 'Monthly':
+        return planDetails?.monthlyPrice;
+      case 'Quarterly':
+        return planDetails?.quarterlyPrice;
+      case 'HalfYearly':
+        return planDetails?.halfYearlyPrice;
+      case 'Annually':
+        return planDetails?.yearlyPrice;
+      default:
+        return 0;
+    }
+  };
+
+  const applyCoupon = () =>{
+
+  }
+
   console.log(planDetails);
-  console.log(id);
+  console.log(cart, 'cart');
 
   return (
     <>
+    <Layout>
       {loading && <p>Loading...</p>}
       {/* {error && <p>Sorry, there was an error loading the data. Please try again later.</p>}
       {planDetails && (
@@ -43,15 +70,15 @@ const PlanDetails = () => {
         className="single-plan-details-container"
         style={{ padding: "40px" }}
       >
-        <div class="row">
-          <div class="col-12 col-md-8">
+        <div className="row">
+          <div className="col-12 col-md-8">
             <form action="" method="post" id="cart3">
-              <div class="card shadow p-4">
-                <h3 class="mb-4 text-primary pb-3 border-bottom">
+              <div className="card shadow p-4">
+                <h3 className="mb-4 text-primary pb-3 border-bottom">
                   {planDetails?.name}
                 </h3>
-                <div class="card-body p-0" id="product_description">
-                  <div class="mb-3 product_description">
+                <div className="card-body p-0" id="product_description">
+                  <div className="mb-3 product_description">
                     <ul>
                       <li>Lite Speed Enterprise</li>
                       <li>Unique Account Isolation</li>
@@ -78,59 +105,61 @@ const PlanDetails = () => {
                   </div>
                 </div>
               </div>
-              <div class="card shadow p-4 mt-4">
-                <h3 class="mb-4  text-primary pb-3 border-bottom">
+              <div className="card shadow p-4 mt-4">
+                <h3 className="mb-4  text-primary pb-3 border-bottom">
                   Product Configuration
                 </h3>
-                <div class="card-body p-0">
-                  <dl class="row align-items-center">
-                    <dt class="col-md-3 col-12 font-weight-normal">
+                <div className="card-body p-0">
+                  <dl className="row align-items-center">
+                    <dt className="col-md-3 col-12 font-weight-normal">
                       Choose billing cycle:
                     </dt>
-                    <dd class="col-md-9 col-12 ">
+                    <dd className="col-md-9 col-12 ">
                       <select
-                        class="form-control"
+                        className="form-control"
                         name="cycle"
-                        onchange="simulateCart('#cart3');"
+                        value={billingCycle}
+                        onChange={(e) => setBillingCycle(e.target.value)}
                       >
-                        <option value="m" selected="selected">
-                          ₹ {planDetails?.price} INR Monthly{" "}
-                        </option>
-                        <option value="a">₹{(planDetails?.price)*(11)} INR Annually </option>
+                        <option value="Monthly" selected="selected" > ₹ {planDetails?.monthlyPrice} INR Monthly{" "} </option>
+                        <option value= "Quarterly"> ₹ {(planDetails?.quarterlyPrice)} INR Quarterly </option>
+                        <option value= "HalfYearly"> ₹ {(planDetails?.halfYearlyPrice)} INR HalfYearly </option>
+                        <option value= "Annually"> ₹ {(planDetails?.yearlyPrice)} INR Annually </option>
                       </select>
                     </dd>
                   </dl>
-                  <dl class="row align-items-center">
-                    <dt class="col-md-3 col-12 font-weight-normal">
+                  <dl className="row align-items-center">
+                    <dt className="col-md-3 col-12 font-weight-normal">
                       Hostname *
                     </dt>
-                    <dd class="col-md-9 col-12 ">
+                    <dd className="col-md-9 col-12 ">
                       <input
                         name="domain"
                         type="text"
-                        value=""
-                        class="form-control"
+                        value={hostname}
+                        className="form-control"
+                        required
                       />
                     </dd>
                   </dl>
                   <small>Fields marked with asterisk (*) are required </small>
                 </div>
               </div>
-              <input name="action" value="addconfig" type="hidden" />
+              <input name="action" value="a" type="hidden" />
             </form>
           </div>
-          <div class="col-12 col-md-4">
+          <div className="col-12 col-md-4">
             <div
-              class="order-summary-box cart-summary p-4 shadow card"
+              className="order-summary-box cart-summary p-4 shadow card"
               id="cartSummary"
             >
-              <h3 class="mb-4 text-primary pb-3 border-bottom">
+              <h3 className="mb-4 text-primary pb-3 border-bottom">
                 Cart summary{" "}
               </h3>
-              <table border="0" cellpadding="0" cellspacing="1" width="100%">
+              <table border="0" cellPadding="0" cellSpacing="1" width="100%">
                 <tbody>
                   <tr>
-                    <td colspan="2">
+                    <td colSpan="2">
                       Managed Web Hosting - <strong>mSH-i1</strong>
                     </td>
                   </tr>
@@ -139,53 +168,75 @@ const PlanDetails = () => {
                     <td align="right">₹0.00 INR</td>
                   </tr>
                   <tr>
-                    <td>Monthly</td>
-                    <td align="right">₹ {planDetails?.price} INR</td>
+                    <td>{billingCycle}</td>
+                    <td align="right">₹ {getBillingCyclePrice()} INR</td>
                   </tr>
                 </tbody>
               </table>
-              <div class="d-flex flex-column align-items-end summary-section">
-                <strong class="font-weight-bold text-uppercase text-muted iconfont-size2">
+              <div className="d-flex flex-column align-items-end summary-section">
+                <strong className="font-weight-bold text-uppercase text-muted iconfont-size2">
                   <small>Cart subtotal today: </small>
                 </strong>
-                <div class="h1 font-weight-bold my-2">
+                <div className="h1 font-weight-bold my-2">
                   <span>₹</span>
-                  <span>{planDetails?.price}</span>
+                  <span>{getBillingCyclePrice()}</span>
                 </div>
               </div>
               <form
                 action=""
                 method="post"
-                class="d-flex flex-row justify-content-between align-items-center"
+                className="d-flex flex-row justify-content-between align-items-center"
                 id="promoform"
-                onsubmit="return applyCoupon();"
+                onSubmit={applyCoupon()}
               >
                 <input type="hidden" name="step" value="3" />
                 <input
                   type="text"
-                  class="form-control form-control-sm mr-2 m-2 py-3"
+                  className="form-control form-control-sm mr-2 m-2 py-3"
                   name="promocode"
                   placeholder="Promotional code"
                   aria-label="Promotional code"
                 />
                 <button
                   type="submit"
-                  class="btn btn-sm btn-outline-success py-2 btn-border1px"
+                  className="btn btn-sm btn-outline-success py-2 btn-border1px"
                 >
                   Submit
                 </button>
               </form>
-              <a
+              {/* <a
                 href="#"
-                class="cartSummaryContinue btn btn-primary w-100 btn-lg"
+                className="cartSummaryContinue btn btn-primary w-100 btn-lg"
                 onclick="$('#cart3').submit(); return false;"
               >
                 Continue
-              </a>{" "}
+              </a>{" "} */}
+
+<Button
+  variant="contained"
+  className="btn"
+  onClick={() => {
+    const itemToAdd = {
+      ...planDetails,
+      billingCycle: document.querySelector('[name="cycle"]').value,
+      hostname: document.querySelector('[name="domain"]').value
+    };
+    setCart([...cart, itemToAdd]);
+    localStorage.setItem(
+      "cart",
+      JSON.stringify([...cart, itemToAdd])
+    );
+    toast.success("Item Added to cart");
+    navigate("/cart");
+  }}
+>
+  Buy Now
+</Button>
             </div>
           </div>
         </div>
       </div>
+      </Layout>
     </>
   );
 };

@@ -11,21 +11,15 @@ import {
 const router = express.Router();
 
 //routes
-// create category
-router.post(
-  "/create-category",
-  requireSignIn,
-  isAdmin,
-  createUserController
-);
+
 
 // update user
-router.put(
-  "/update-category/:id",
-  requireSignIn,
-  isAdmin,
-  updateUserController
-);
+// router.put(
+//   "/update-category/:id",
+//   requireSignIn,
+//   isAdmin,
+//   updateUserController
+// );
 
 //getALl user
 router.get("/get-users", userController);

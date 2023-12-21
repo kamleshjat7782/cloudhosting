@@ -20,7 +20,6 @@ export const createUserController = async (req, res) => {
     res.status(201).send({
       success: true,
       message: "new user created",
-      category,
     });
   } catch (error) {
     console.log(error);
@@ -45,7 +44,6 @@ export const updateUserController = async (req, res) => {
     res.status(200).send({
       success: true,
       messsage: "User Updated Successfully",
-      category,
     });
   } catch (error) {
     console.log(error);

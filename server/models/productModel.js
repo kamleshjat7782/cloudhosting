@@ -14,14 +14,17 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    price: {
+    monthlyPrice: {
       type: Number,
-      required: true,
     },
-    category: {
-      type: mongoose.ObjectId,
-      ref: "Category",
-      required: true,
+    quarterlyPrice: {
+      type: Number,
+    },
+    halfYearlyPrice: {
+      type: Number,
+    },
+    yearlyPrice: {
+      type: Number,
     },
     storage: {
       type: Number,

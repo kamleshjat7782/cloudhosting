@@ -6,7 +6,6 @@ import {
   deleteProductController,
   getProductController,
   getSingleProductController,
-  productCategoryController,
   productCountController,
   productFiltersController,
   productListController,
@@ -64,8 +63,6 @@ router.get("/search/:keyword", searchProductController);
 //similar product
 router.get("/related-product/:pid/:cid", realtedProductController);
 
-//category wise product
-router.get("/product-category/:slug", productCategoryController);
 
 //payments routes
 //token

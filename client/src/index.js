@@ -19,12 +19,9 @@ import Policy from "./pages/Policy";
 import Pagenotfound from "./pages/Pagenotfound";
 import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
-import PrivateRoute from "./components/Routes/Private";
 import ForgotPasssword from "./pages/Auth/ForgotPasssword";
 import AdminRoute from "./components/Routes/AdminRoute";
 import ProductDetails from "./pages/ProductDetails";
-import Categories from "./pages/Categories";
-import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import ContactUs from "./pages/Contact Us/ContactUs";
 import AddPlan from "./pages/AddPlan";
@@ -33,6 +30,7 @@ import Invoice from "./pages/Invoice/Invoice";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Search from "antd/es/transfer/search";
 import Reg from "./pages/Auth/Reg";
+import { PlanProvider } from "./context/plan";
 
 
 const router = createBrowserRouter(
@@ -40,9 +38,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="/" element={<HomePage />} />
       <Route path="/product/:slug" element={<ProductDetails />} />
-      <Route path="/categories" element={<Categories />} />
       <Route path="/cart" element={<CartPage />} />
-      <Route path="/category/:slug" element={<CategoryProduct />} />
       <Route path="/search" element={<Search />} />
       <Route path="/addplan-cart" element={<AddPlan />} />
       <Route path="/plan-details/:id" element={<PlanDetails />} />
@@ -71,7 +67,9 @@ root.render(
   <AuthProvider>
     <SearchProvider>
       <CartProvider>
+      <PlanProvider>
         <RouterProvider router={router} />
+        </PlanProvider>
       </CartProvider>
     </SearchProvider>
   </AuthProvider>

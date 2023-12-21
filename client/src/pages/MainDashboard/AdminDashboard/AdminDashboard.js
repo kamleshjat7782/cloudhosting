@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import CreateCategory from '../../Admin/CreateCategory'
 import CreateProduct from '../../Admin/CreateProduct'
 import UpdateProduct from '../../Admin/UpdateProduct'
 import Products from '../../Admin/Products'
@@ -16,7 +15,6 @@ const AdminDashboards = () => {
     <>
         <Routes>
         <Route path="admin" element={<AdminDashboard />} />
-        <Route path="admin/create-category" element={<CreateCategory />} />
         {/* <Route path="admin/dashboard" element={<AdminDashboard />} /> */}
         <Route path="admin/create-product" element={<CreateProduct />} />
         <Route path="admin/product/:slug" element={<UpdateProduct />} />

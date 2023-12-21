@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList, faUserCircle} from '@fortawesome/free-solid-svg-icons'
-// import { faBuffer } from '@fortawesome/free-brands-svg-icons';
+
 import { useAuth } from '../../context/auth';
 
 const Sidebar = ({setTitle}) => {
-    // const { state: { admin } } = useAppContext()
     const [auth] = useAuth
     const [role, setRole] = useState('true')
 
@@ -29,12 +26,7 @@ const Sidebar = ({setTitle}) => {
                         </li>
                     {role  ? 
                         <>
-                            <li>
-                                <NavLink onClick={() => setTitle('Create Category')} activeclassname="activePage" to="/admin/create-category">
-                                    {/* <FontAwesomeIcon icon={faList} className="iconC"/>  */}
-                                    Create Category
-                                </NavLink>
-                            </li>
+                           
                             <li>
                                 <NavLink onClick={() => setTitle('Add Service')} activeclassname="activePage" to="/admin/create-product">
                                     {/* <FontAwesomeIcon icon={faFileMedical} className="iconC"/>  */}

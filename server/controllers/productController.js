@@ -1,5 +1,4 @@
 import productModel from "../models/productModel.js";
-import categoryModel from "../models/categoryModel.js";
 import orderModel from "../models/orderModel.js";
 
 import fs from "fs";
@@ -19,19 +18,21 @@ var gateway = new braintree.BraintreeGateway({
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category,  shipping, core, ram, bandwidth, storage } =
+    const { name, description, monthlyPrice, quarterlyPrice, halfYearlyPrice, yearlyPrice, core, ram, bandwidth, storage } =
       req.fields;
-    // const { photo } = req.files;
-    //alidation
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is Required" });
       case !description:
         return res.status(500).send({ error: "Description is Required" });
-      case !price:
-        return res.status(500).send({ error: "Price is Required" });
-      case !category:
-        return res.status(500).send({ error: "Category is Required" });
+      case !monthlyPrice:
+        return res.status(500).send({ error: "monthlyPrice is Required" });
+      case !quarterlyPrice:
+        return res.status(500).send({ error: "quarterlyPrice is Required" });
+      case !halfYearlyPrice:
+        return res.status(500).send({ error: "halfYearlyPrice is Required" });
+      case !yearlyPrice:
+        return res.status(500).send({ error: "yearlyPrice is Required" });
       case !storage:
         return res.status(500).send({ error: "storage is Required" });
       case !core:
@@ -61,13 +62,13 @@ export const createProductController = async (req, res) => {
   }
 };
 
+
+
 //get all products
 export const getProductController = async (req, res) => {
   try {
     const products = await productModel
       .find({})
-      .populate("category")
-      .select("-photo")
       .limit(12)
       .sort({ createdAt: -1 });
     res.status(200).send({
@@ -90,7 +91,6 @@ export const getSingleProductController = async (req, res) => {
   try {
     const product = await productModel
       .findOne({ _id: req.params.id })
-      .populate("category");
     res.status(200).send({
       success: true,
       message: "Single Product Fetched",
@@ -106,28 +106,11 @@ export const getSingleProductController = async (req, res) => {
   }
 };
 
-// get photo
-// export const productPhotoController = async (req, res) => {
-//   try {
-//     const product = await productModel.findById(req.params.pid).select("photo");
-//     if (product.photo.data) {
-//       res.set("Content-type", product.photo.contentType);
-//       return res.status(200).send(product.photo.data);
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).send({
-//       success: false,
-//       message: "Erorr while getting photo",
-//       error,
-//     });
-//   }
-// };
 
 //delete controller
 export const deleteProductController = async (req, res) => {
   try {
-    await productModel.findByIdAndDelete(req.params.pid).select("-photo");
+    await productModel.findByIdAndDelete(req.params.pid);
     res.status(200).send({
       success: true,
       message: "Product Deleted successfully",
@@ -145,31 +128,28 @@ export const deleteProductController = async (req, res) => {
 //upate producta
 export const updateProductController = async (req, res) => {
   try {
-    const { name, description, price, category, shipping, core, ram, bandwidth } =
+    const { name, description, core, ram, bandwidth, monthlyPrice, quarterlyPrice , halfYearlyPrice, yearlyPrice } =
       req.fields;
-    const { photo } = req.files;
     //alidation
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is Required" });
       case !description:
         return res.status(500).send({ error: "Description is Required" });
-      case !price:
-        return res.status(500).send({ error: "Price is Required" });
-      case !category:
-        return res.status(500).send({ error: "Category is Required" });
-      // case !quantity:
-      //   return res.status(500).send({ error: "Quantity is Required" });
+      case !monthlyPrice:
+        return res.status(500).send({ error: "monthlyPrice is Required" });
+      case !quarterlyPrice:
+        return res.status(500).send({ error: "quarterlyPrice is Required" });
+      case !halfYearlyPrice:
+        return res.status(500).send({ error: "halfYearlyPrice is Required" });
+      case !yearlyPrice:
+        return res.status(500).send({ error: "yearlyPrice is Required" });
       case !core:
         return res.status(500).send({ error: "core is Required" });
       case !ram:
         return res.status(500).send({ error: "ram is Required" });
       case !bandwidth:
         return res.status(500).send({ error: "bandwidth is Required" });
-      // case photo && photo.size > 1000000:
-      //   return res
-      //     .status(500)
-      //     .send({ error: "photo is Required and should be less then 1mb" });
     }
 
     const products = await productModel.findByIdAndUpdate(
@@ -177,10 +157,7 @@ export const updateProductController = async (req, res) => {
       { ...req.fields, slug: slugify(name) },
       { new: true }
     );
-    // if (photo) {
-    //   products.photo.data = fs.readFileSync(photo.path);
-    //   products.photo.contentType = photo.type;
-    // }
+  
     await products.save();
     res.status(201).send({
       success: true,
@@ -200,9 +177,8 @@ export const updateProductController = async (req, res) => {
 // filters
 export const productFiltersController = async (req, res) => {
   try {
-    const { checked, radio } = req.body;
+    const {  radio } = req.body;
     let args = {};
-    if (checked.length > 0) args.category = checked;
     if (radio.length) args.price = { $gte: radio[0], $lte: radio[1] };
     const products = await productModel.find(args);
     res.status(200).send({
@@ -244,7 +220,6 @@ export const productListController = async (req, res) => {
     const page = req.params.page ? req.params.page : 1;
     const products = await productModel
       .find({})
-      .select("-photo")
       .skip((page - 1) * perPage)
       .limit(perPage)
       .sort({ createdAt: -1 });
@@ -273,7 +248,6 @@ export const searchProductController = async (req, res) => {
           { description: { $regex: keyword, $options: "i" } },
         ],
       })
-      .select("-photo");
     res.json(resutls);
   } catch (error) {
     console.log(error);
@@ -288,15 +262,12 @@ export const searchProductController = async (req, res) => {
 // similar products
 export const realtedProductController = async (req, res) => {
   try {
-    const { pid, cid } = req.params;
+    const { pid } = req.params;
     const products = await productModel
       .find({
-        category: cid,
         _id: { $ne: pid },
       })
-      .select("-photo")
       .limit(3)
-      .populate("category");
     res.status(200).send({
       success: true,
       products,
@@ -311,25 +282,7 @@ export const realtedProductController = async (req, res) => {
   }
 };
 
-// get prdocyst by catgory
-export const productCategoryController = async (req, res) => {
-  try {
-    const category = await categoryModel.findOne({ slug: req.params.slug });
-    const products = await productModel.find({ category }).populate("category");
-    res.status(200).send({
-      success: true,
-      category,
-      products,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({
-      success: false,
-      error,
-      message: "Error While Getting products",
-    });
-  }
-};
+
 
 //payment gateway api
 //token
